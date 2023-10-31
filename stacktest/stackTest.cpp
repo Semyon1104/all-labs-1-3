@@ -1,18 +1,26 @@
-#include "MyVector.h"
+#include "C:\сема\1курс\основы проги\lab stack_queue\all-labs-1-3\stacklib\Mystack.cpp"
 
 #include <gtest.h>
 
-//TEST(Vector, throws_when_create_vector_with_negative_size)
-//{
-//}
-
-TEST(Vector, can_get_size)
+TEST(TStack, throws_when_create_vector_with_negative_size)
 {
+	ASSERT_ANY_THROW(TStack<int> s(-3));
 }
 
-//TEST(Vector, thorws_when_index_argument_is_negative) {
-//}
-//
+TEST(TStack, can_get_size)
+{
+	TStack<int> s(3);
+	EXPECT_EQ(3, s.GetSize());
+	
+}
+
+TEST(TStack, thorws_when_stack_is_full_when_push_elems)
+{
+	TStack<int> s(5);
+	ASSERT_ANY_THROW(s.Push(5));
+}
+
+
 //TEST(Vector, thorws_when_index_argument_more_or_eq_size) {
 //}
 //

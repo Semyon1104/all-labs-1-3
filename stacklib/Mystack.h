@@ -1,5 +1,6 @@
-#ifndef _MY_VECTOR_
-#define _MY_VECTOR_
+#pragma once
+#ifndef _MY_STACK_
+#define _MY_STACK_
 
 #include <iostream>
 
@@ -14,37 +15,29 @@ public:
     TStack(int n = 0);
     TStack(TStack<T>& stack);
     ~TStack();
-
     void Push(T a);
     T Get();
     T TopView();
-
     int GetSize();
     int GetTop();
-
-    //операторы вводы и выводы
-
     bool IsFull();
     bool IsEmpty();
 
     TStack& operator=(const TStack<T>& stack);
+    friend ostream& operator << (ostream& ostr, const TStack<T> &A) {
+        cout << "Your stack is ";
+        for (size_t i = 0; i < A.top; i++) {
+            ostr << A.mas[i] << " ";
+        }
+        ostr << endl;
+        return ostr;
+    }
+    friend istream& operator >> (istream& istr, TStack<T> &A) {
+        for (int i = 0; i < A.top; i++) {
+            istr >> A.mas[i];
+        }
+        return istr;
+    }
+
 };
-
-
-//template <class T1>
-//ostream& operator<< (ostream& ostr, const Vector<T1> &A) {
-//  for (int i = 0; i < A.length; i++) {
-//    ostr << A.x[i] << endl;
-//  }
-//  return ostr;
-//}
-//
-//template <class T1>
-//istream& operator >> (istream& istr, Vector<T1> &A) {
-//  for (int i = 0; i < A.length; i++) {
-//    istr >> A.x[i];
-//  }
-//  return istr;
-//}
-
 #endif
