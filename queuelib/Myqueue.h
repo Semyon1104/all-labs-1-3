@@ -19,6 +19,7 @@ public:
     TQueue(TQueue <T>& q);
     ~TQueue();
     TQueue GetBot();
+    T GetBot_for_tests();
     void Push(T a);
     T Get();
 
@@ -30,7 +31,7 @@ public:
             throw "queue is empty";
         }
         cout << "Your queue is ";
-        if (A.ind < A.end){
+        if (A.ind < A.end) {
             for (int i = A.ind; i <= A.end; i++) {
                 if (A.mas[i] == -1) {
                     ostr << " " << " ";
@@ -43,12 +44,12 @@ public:
         if (A.ind > A.end) {
             for (int i = 0; i < A.size; i++) {
                 if (A.mas[i] == -1) {
-                    ostr <<" " << " ";
+                    ostr << " " << " ";
                 }
-                else{ 
-                    ostr << A.mas[i] << " "; 
+                else {
+                    ostr << A.mas[i] << " ";
                 }
-                
+
             }
         }
         if (A.ind == A.end) {
@@ -61,7 +62,7 @@ public:
                 }
             }
         }
-        
+
         ostr << endl;
         return ostr;
     }

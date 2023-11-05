@@ -6,21 +6,20 @@ TStack<T>::TStack(int n = 0) {
 		throw "size is less then 0";
 	}
 	this->size = n;
-	mas = new T[size];
+	this->mas = new T[size];
 	this->top = n;
 }
+
 template<class T>
 TStack<T>::TStack(TStack<T>& stack) {
-	if (stack.IsEmpty()) {
-		this->size = stack.size;
-		delete[] this->mas;
-		this->top = 0;
-	}
+	delete[] this->mas;
 	this->size = stack.size;
 	this->top = stack.top;
+	this->mas = new T[this->size];
 	for (size_t i = 0; i < size; i++) {
 		mas[i] = stack.mas[i];
 	}
+	return *this;
 }
 template<class T>
 void TStack<T>::Push(T a) {
@@ -60,7 +59,7 @@ int TStack<T>::GetSize() {
 	return this->size;
 }
 template<class T>
-int TStack<T>::GetTop() {
+T TStack<T>::GetTop() {
 	if (IsEmpty()) {
 		throw "stack is empty";
 	}

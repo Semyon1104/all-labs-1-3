@@ -4,6 +4,9 @@
 
 template<class T>
 TQueue<T>::TQueue(int n = 0) {
+	if (n < 0) {
+		throw "size is less then 0";
+	}
 	if (n == 0) {
 		this->ind = -1;
 	}
@@ -15,16 +18,14 @@ TQueue<T>::TQueue(int n = 0) {
 }
 template<class T>
 TQueue<T>::TQueue(TQueue<T>& q) {
-	if (q.IsEmpty()) {
-		delete[] this->mas;
-	}
+	delete[] this->mas;
 	this->size = q.size;
-	this->mas = new T[size];
+	this->mas = new T[this->size];
 	this->ind = q.ind;
 	this->end = q.end;
 	this->count = q.count;
 	for (size_t i = 0; i < size; i++) {
-		this->mas[i] = q.mas[i];
+		mas[i] = q.mas[i];
 	}
 }
 template<class T>
@@ -86,7 +87,20 @@ TQueue<T> TQueue<T>::GetBot() {
 
 	this->count--;
 	ind++;
-	cout << this->mas[ind - 1]<<" "<< " - Extracted element from bottom"<<endl;
+	cout << this->mas[ind - 1] << " " << " - Extracted element from bottom" << endl;
 	this->mas[ind - 1] = -1;
 	return *this;
+}
+template<class T>
+T TQueue<T>::GetBot_for_tests() {
+	if (IsEmpty()) {
+		throw "queue is empty";
+	}
+	if (this->ind > this->size - 1) {
+		this->ind = 0;
+	}
+
+	this->count--;
+	ind++;
+	return this->mas[ind - 1];
 }

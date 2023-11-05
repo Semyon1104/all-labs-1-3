@@ -1,87 +1,70 @@
-#include "MyVector.h"
+#include "C:\сема\3лаба\all-labs-1-3\queuelib\Myqueue.cpp"
 
 #include <gtest.h>
 
-//TEST(Vector, throws_when_create_vector_with_negative_size)
-//{
-//}
-
-TEST(Vector, can_get_size)
+TEST(TQueue, can_create_queue)
 {
+	ASSERT_NO_THROW(TQueue<int> s(3));
+}
+TEST(TQueue, throws_when_create_queue_with_negative_size)
+{
+	ASSERT_ANY_THROW(TQueue<int> s(-3));
 }
 
-//TEST(Vector, thorws_when_index_argument_is_negative) {
-//}
-//
-//TEST(Vector, thorws_when_index_argument_more_or_eq_size) {
-//}
-//
-//TEST(Vector, can_use_index_operator) {
-//}
-//
-//TEST(Vector, can_compare_vectors_true) {
-//}
-//
-//TEST(Vector, can_compare_vectors_false_with_one_size) {
-//}
-//
-//TEST(Vector, can_compare_vectors_false_with_diff_size) {
-//}
-//
-//TEST(Vector, can_assign_vector) {
-//}
-//
-//TEST(Vector, can_prefix_increment) {
-//}
-//
-//TEST(Vector, can_postfix_increment)
-//{
-//}
-//
-//TEST(Vector, can_prefix_decrement)
-//{
-//}
-//
-//TEST(Vector, can_postfix_decrement)
-//{
-//}
-//
-//TEST(Vector, can_unary_addition)
-//{
-//}
-//
-//TEST(Vector, can_unary_subtraction)
-//{
-//}
-//
-//TEST(Vector, can_addition_vectors)
-//{
-//}
-//
-//TEST(Vector, thorws_when_addition_vectors_with_diff_size) 
-//{
-//}
-//
-//TEST(Vector, can_subtraction_vectors)
-//{
-//}
-//
-//TEST(Vector, thorws_when_subtraction_vectors_with_diff_size)
-//{
-//}
-//
-//TEST(Vector, can_multiplication_vectors) 
-//{
-//}
-//
-//TEST(Vector, throws_when_multiplication_vectors_with_diff_size)
-//{
-//}
-//
-//TEST(Vector, can_multiplication_vector_by_number) 
-//{
-//}
-//
-//TEST(Vector, can_multiplication_number_by_vector)
-//{
-//}
+TEST(TQueue, thorws_when_queue_is_full_when_push_elems)
+{
+	TQueue<int> s(5);
+	ASSERT_ANY_THROW(s.Push(5));
+}
+
+TEST(TQueue, push_elems_in_empty_queue)
+{
+	TQueue<int> s(5);
+	for (int i = 0; i < 5; i++) {
+		int a = s.GetBot_for_tests();
+	}
+	ASSERT_NO_THROW(s.Push(5));
+}
+
+TEST(TQueue, can_check_is_empty)
+{
+	TQueue<int> s(3);
+	EXPECT_EQ(false, s.IsEmpty());
+
+}
+
+TEST(TQueue, get_ind_queue)
+{
+	TQueue<int> s(2);
+	ASSERT_NO_THROW(s.Get());
+}
+
+TEST(TQueue, throw_when_get_ind_empty_queue)
+{
+	TQueue<int> s(1);
+	s.GetBot_for_tests();
+	ASSERT_ANY_THROW(s.Get());
+}
+
+TEST(TQueue, can_check_is_full)
+{
+	TQueue<int> s(3);
+	EXPECT_EQ(true, s.IsFull());
+
+}
+
+TEST(TQueue, get_elems_from_empty_queue)
+{
+	TQueue<int> s(5);
+	for (int i = 0; i < 5; i++) {
+		int a = s.GetBot_for_tests();
+	}
+	ASSERT_ANY_THROW(int a = s.GetBot_for_tests());
+}
+
+TEST(TQueue, get_elems_from_not_empty_queue)
+{
+	TQueue<int> s(5);
+
+	ASSERT_NO_THROW(int a = s.GetBot_for_tests());
+}

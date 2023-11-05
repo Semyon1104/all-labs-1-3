@@ -19,7 +19,7 @@ public:
     T Get();
     T TopView();
     int GetSize();
-    int GetTop();
+    T GetTop();
     bool IsFull();
     bool IsEmpty();
 
