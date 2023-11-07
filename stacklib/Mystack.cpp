@@ -7,7 +7,7 @@ TStack<T>::TStack(int n = 0) {
 	}
 	this->size = n;
 	this->mas = new T[size];
-	this->top = n;
+	this->top = 0;
 }
 
 template<class T>

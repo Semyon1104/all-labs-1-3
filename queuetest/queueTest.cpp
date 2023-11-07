@@ -1,4 +1,4 @@
-#include "C:\сема\3лаба\all-labs-1-3\queuelib\Myqueue.cpp"
+#include "Myqueue.cpp"
 
 #include <gtest.h>
 

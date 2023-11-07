@@ -1,4 +1,4 @@
-#include "C:\сема\3лаба\all-labs-1-3\stacklib\Mystack.cpp"
+#include "Mystack.cpp"
 
 #include <gtest.h>
 

@@ -1,5 +1,5 @@
-#include "C:\сема\3лаба\all-labs-1-3\stacklib\Mystack.cpp"
-#include "C:\сема\3лаба\all-labs-1-3\queuelib\Myqueue.cpp"
+#include "Mystack.cpp"
+#include "Myqueue.cpp"
 #include <iostream>
 using namespace std;
 void start() {
