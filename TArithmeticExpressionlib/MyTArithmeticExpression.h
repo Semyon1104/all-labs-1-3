@@ -13,6 +13,7 @@ class TArithmeticExpression
 	map<char, double> operands;
 	void Parse();
 	void ToPostfix();
+	vector<int> num;
 public:
 	TArithmeticExpression(string infx);
 	string GetInfix() const // почему здесь нельзя написать noexcept?
@@ -23,6 +24,6 @@ public:
 	{
 		return postfix;
 	}
-	vector<char> GetOperands() const;
-	double Calculate(const map<char, double>& values);
+	vector<double> GetOperands() const;
+	double Calculate();
 };

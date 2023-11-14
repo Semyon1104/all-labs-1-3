@@ -10,16 +10,19 @@ int main()
 	TArithmeticExpression expr(exprStr);
 	cout << expr.GetInfix() << endl;
 	cout << expr.GetPostfix() << endl;
-	vector<char> operands = expr.GetOperands();
-	map<char, double> values;
-	double val;
-	for (const auto& op : operands)
-	{
-		cout << "Enter value of " << op << ": ";
-		cin >> val;
-		values[op] = val;
-	}
-	cout << expr.Calculate(values) << endl;
+
+	//map<char, double> values;
+	//double val;
+	//int i = 0;
+	//for (const auto& op : operands)
+	//{
+	//	/*cout << "Enter value of " << op << ": ";
+	//	cin >> val;*/
+	//	val = operands[i];
+	//	i++;
+	//	values[op] = val;
+	//}
+	cout << expr.Calculate() << endl;
 	setlocale(LC_ALL, "Russian");
 }
 
